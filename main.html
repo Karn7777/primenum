@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prime number calculator</title>
+    <style>
+        .buttonsty{
+            background-color: rgb(80, 219, 240);
+            border-radius: 10px;
+        }
+        .red{
+            background-color: rgb(255, 70, 70);
+            width: 25%;
+        }
+        .green{
+            background-color: rgb(138, 215, 75);
+            width: 25%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Prime number calculator</h1>
+    <text>Enter number: </text>
+    <input type="number" id="n">
+    <button onclick="check()" class="buttonsty">Check</button>
+    <h3 id="ans"></h3>
+    <script>
+        function isprime(num) {
+            if (num <= 1) {
+                return false;
+            }
+            for (var i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        function check() {
+            var num = parseInt(document.getElementById("n").value);
+            var answer = document.getElementById("ans");
+            if (isprime(num)) {
+                answer.textContent ="Prime number";
+                answer.className ="green";
+            } else {
+                answer.textContent ="Not a prime number";
+                answer.className="red";
+            }
+        }
+    </script>
+</body>
+</html>
